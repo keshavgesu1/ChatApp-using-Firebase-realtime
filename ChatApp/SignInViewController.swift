@@ -32,8 +32,6 @@ class SignInViewController: UIViewController {
     //MARK: LOGIN BUTTON
     //using firebase button for sign in 
     @IBAction func buttonLogin(_ sender: UIButton) {
-//        let numbers = [0]
-//            let _ = numbers[1]
         let email = textfieldEmail.text ?? ""
         let password = textfieldPassword.text ?? ""
         Auth.auth().signIn(withEmail: email, password: password){ [weak self ] user, error in
@@ -49,7 +47,6 @@ class SignInViewController: UIViewController {
     }
     
     //MARK: GOOGLE BUTTON
-   
     @IBAction func buttonGoogle(_ sender: Any) {
        // GIDSignIn.sharedInstance.signIn(with: GIDConfiguration., presenting: self)
         

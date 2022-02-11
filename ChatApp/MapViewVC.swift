@@ -155,3 +155,52 @@ extension MapViewVC: CLLocationManagerDelegate {
   }
 }
       
+//MARK: - DRAW LINES BETWEEN INITIAL AND FINAL DESTINATION
+/*func fetchRoute(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
+    
+    let session = URLSession.shared
+    
+    let url = URL(string: "http://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&mode=driving")!
+    
+    let task = session.dataTask(with: url, completionHandler: {
+        (data, response, error) in
+        
+        guard error == nil else {
+            print(error!.localizedDescription)
+            return
+        }
+        
+        guard let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any], let jsonResponse = jsonResult else {
+            print("error in JSONSerialization")
+            return
+        }
+        
+        guard let routes = jsonResponse["routes"] as? [Any] else {
+            return
+        }
+        
+        guard let route = routes[0] as? [String: Any] else {
+            return
+        }
+
+        guard let overview_polyline = route["overview_polyline"] as? [String: Any] else {
+            return
+        }
+        
+        guard let polyLineString = overview_polyline["points"] as? String else {
+            return
+        }
+        
+        //Call this method to draw path on map
+        self.drawPath(from: polyLineString)
+    })
+ //https://stackoverflow.com/questions/42136203/how-to-draw-routes-between-two-locations-in-google-maps-ios-swift
+    task.resume()
+}
+ func drawPath(from polyStr: String){
+     let path = GMSPath(fromEncodedPath: polyStr)
+     let polyline = GMSPolyline(path: path)
+     polyline.strokeWidth = 3.0
+     polyline.map = mapView // Google MapView
+ }
+*/
